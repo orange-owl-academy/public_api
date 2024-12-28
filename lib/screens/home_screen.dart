@@ -8,22 +8,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Public API'),
+        title: const Text('Post API'),
         centerTitle: true,
       ),
-      body: SizedBox(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(width: double.infinity),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => PostScreen()),
+                  MaterialPageRoute(builder: (context) => const PostScreen()),
                 );
               },
-              child: const Text('Posts API'),
+              child: const Text('Get Posts'),
             ),
           ],
         ),
