@@ -10,13 +10,7 @@ class ApiService {
       //* step 1: Fetch Data from API
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        //* step 2: decode the json
-        var data = json.decode(response.body) as List;
-        print('### data -> $data');
-
-        //* step 3: convert JSON to List<Post>
-        final list = data.map((json) => Post.fromJson(json)).toList();
-        return list;
+        return List<Post>.from(json.decode(response.body).map((json) => Post.fromJson(json)));
       } else {
         throw Exception('Failed to load posts');
       }
