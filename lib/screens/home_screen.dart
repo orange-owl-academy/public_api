@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:public_api/screens/auth_screen.dart';
 import 'package:public_api/screens/post_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,6 +23,14 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Get Posts'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) =>  AuthView()),
+                );
+              },
+              child: const Text('Post Data'),
             ),
           ],
         ),

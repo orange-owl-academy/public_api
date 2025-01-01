@@ -23,12 +23,18 @@ class _PostScreenState extends State<PostScreen> {
 
   void _loadPosts() async {
     result = await apiService.getPosts();
+
+    var myData = result[0].copyWith();
+    print(myData);
+    myData.title = "Rahim";
+
     isLoading = false;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Posts'),
