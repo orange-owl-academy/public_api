@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:public_api/screens/auth_screen.dart';
-import 'package:public_api/screens/post_screen.dart';
+import 'package:public_api/presentation/screens/auth_screen.dart';
+import 'package:public_api/presentation/screens/character_screen.dart';
+import 'package:public_api/presentation/screens/post_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,10 +28,18 @@ class HomeScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) =>  AuthView()),
+                  MaterialPageRoute(builder: (context) => AuthView()),
                 );
               },
               child: const Text('Post Data'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const CharacterScreen()),
+                );
+              },
+              child: const Text('Get Characters'),
             ),
           ],
         ),

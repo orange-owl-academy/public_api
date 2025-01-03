@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:public_api/models/post.dart';
-import 'package:public_api/services/api_service.dart';
+import 'package:public_api/data/database/post_db.dart';
+import 'package:public_api/data/models/post.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -10,10 +10,9 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
-  final ApiService apiService = ApiService();
   List<Post> result = [];
   bool isLoading = true;
-
+  PostDb postDb = PostDb();
   @override
   void initState() {
     //* Initial State
@@ -22,19 +21,13 @@ class _PostScreenState extends State<PostScreen> {
   }
 
   void _loadPosts() async {
-    result = await apiService.getPosts();
-
-    var myData = result[0].copyWith();
-    print(myData);
-    myData.title = "Rahim";
-
+    result = await postDb.postData();
     isLoading = false;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Posts'),

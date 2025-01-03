@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:public_api/models/post_response.dart';
+import 'package:public_api/data/models/post_response.dart';
 
-import '../services/api_service.dart';
+import '../../core/services/api_service.dart';
 
 
 class AuthView extends StatefulWidget {
